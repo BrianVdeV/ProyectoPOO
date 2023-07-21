@@ -7,7 +7,7 @@ package DAO;
 
 public interface Parametros {    
     String DRIVER="com.mysql.cj.jdbc.Driver";
-    String RUTA="jdbc:mysql://208.109.31.44:3306/ProyectoPOO";
-    String USUARIO="jorgebrianvdv";
-    String CLAVE="Xdjorge27";    
+    String RUTA="jdbc:mysql://localhost:3306/ProyectoPOO";
+    String USUARIO="root";
+    String CLAVE="";    
 }
