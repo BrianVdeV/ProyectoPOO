@@ -20,11 +20,10 @@ public class Ingresar extends IngresarSistema implements Constantes {
     }
 
     public Object[] Registro(int num) {
-        Object[] fila = { super.getInicio(), super.getProyecto(), super.getActividad()};
+        Object[] fila = {super.getInicio(), super.getProyecto(), super.getActividad()};
         return fila;
     }
 
-    
     @Override
     public String ot() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
