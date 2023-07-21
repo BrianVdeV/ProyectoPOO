@@ -21,11 +21,11 @@ public class Main {
 
     public static void main(String[] args) {
         //CREANDO UN FORMULARIO Y ENVIANDOLO A SU CONTROLADOR
-        fpanel = new frmPanel();
-        ControladorPanel cp = new ControladorPanel(fpanel);
-        fpanel.setTitle("Aplicativo");
-        fpanel.setVisible(true);
-        fpanel.setLocationRelativeTo(null);
+        flogin = new frmLogin();
+        ControladorLogin cl = new ControladorLogin(flogin);
+        flogin.setTitle("Inicio de Sesión");
+        flogin.setVisible(true);
+        flogin.setLocationRelativeTo(null);
 
         Lista = new ListaIngresar();
         Lista1 = new ListaBoleta();
