@@ -38,6 +38,7 @@ public class ControladorLogin implements ActionListener {
                 // Si las credenciales son válidas, mostrar el formulario "frmPanel"
                 frmPanel panel = new frmPanel();
                 ControladorPanel cp = new ControladorPanel(panel);
+                Mensajes.M1("Bienvenido!!!");
                 panel.setVisible(true);
                 panel.setLocationRelativeTo(null);
                 vista.dispose(); // Cierra el formulario de inicio de sesión
