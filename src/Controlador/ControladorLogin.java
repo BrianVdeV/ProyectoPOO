@@ -12,29 +12,35 @@ import java.awt.event.ActionListener;
 public class ControladorLogin implements ActionListener {
 
     frmLogin vista;
-    CRUD_Login crud; // c: create r:read  u:update   d=delete
+    CRUD_Login crud;
     Login log;
 
     public ControladorLogin(frmLogin vista) {
         this.vista = vista;
         crud = new CRUD_Login();
         log = new Login();
+        vista.btnIngresar.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnIngresar) {
             String usuario = vista.txtUsuario.getText();
-            String contra = vista.txtContra.getText(); // Obtiene la contraseña como una cadena
+            String contra = vista.txtContra.getText();
 
-            log = crud.ValidarLogin(usuario, contra);
-            if (log == null) {
-                Mensajes.M1("El usuario o contraseña son incorrectos.");
-            } else {
-                // Si el inicio de sesión es exitoso, muestra el formulario "frmPanel"
+            // Crear un objeto Login con las credenciales ingresadas
+            Login login = new Login();
+            login.setUsuario(usuario);
+            login.setContra(contra);
+
+            // Validar las credenciales utilizando el método ValidarLogin de CRUD_Login
+            if (crud.ValidarLogin(login)) {
+                // Si las credenciales son válidas, mostrar el formulario "frmPanel"
                 frmPanel panel = new frmPanel();
                 panel.setVisible(true);
                 vista.dispose(); // Cierra el formulario de inicio de sesión
+            } else {
+                Mensajes.M1("El usuario o contraseña son incorrectos.");
             }
         }
     }

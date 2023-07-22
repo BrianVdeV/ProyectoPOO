@@ -5,19 +5,17 @@ import Formatos.Mensajes;
 
 public class CRUD_Login extends ConectarBD{
 
-    //Metodo que recupera una categoria por medio del id
-    public Login ValidarLogin(String usuario,String contra) {
-        Login log = null;
+        public boolean ValidarLogin(Login login) {
         try {
-            rs = st.executeQuery("select * from usuarios where usuario ='"+usuario+"' and contra=" + contra + ";");
-            if (rs.next()) {
-                log = new Login();
-                log.setUsuario(rs.getString(1));
-                log.setContra(rs.getString(2));
-            }
+            String query = "SELECT * FROM usuarios WHERE usuario = ? AND contra= ?";
+            ps = conexion.prepareStatement(query);
+            ps.setString(1, login.getUsuario());
+            ps.setString(2, login.getContra());
+            rs = ps.executeQuery();
+            return rs.next(); // Si hay algún registro, las credenciales son válidas
         } catch (Exception ex) {
-            Mensajes.M1("Error: no se puede consultar el registro.." + ex);
+            Mensajes.M1("Error al validar las credenciales del empleado: " + ex);
         }
-        return log;
-    }//Fin del metodo
+        return false;
+    }
 }
