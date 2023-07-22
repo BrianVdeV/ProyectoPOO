@@ -37,7 +37,9 @@ public class ControladorLogin implements ActionListener {
             if (crud.ValidarLogin(login)) {
                 // Si las credenciales son válidas, mostrar el formulario "frmPanel"
                 frmPanel panel = new frmPanel();
+                ControladorPanel cp = new ControladorPanel(panel);
                 panel.setVisible(true);
+                panel.setLocationRelativeTo(null);
                 vista.dispose(); // Cierra el formulario de inicio de sesión
             } else {
                 Mensajes.M1("El usuario o contraseña son incorrectos.");

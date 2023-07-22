@@ -27,8 +27,6 @@ public class Main {
         flogin.setVisible(true);
         flogin.setLocationRelativeTo(null);
         
-        frmSeguimiento fs = new frmSeguimiento();
-        ControladorSeguimiento cs2 = new ControladorSeguimiento(fs);
         Lista = new ListaIngresar();
         Lista1 = new ListaBoleta();
         Lista2 = new ListaSeguimiento();
